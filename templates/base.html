@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/appy.css">
+    <link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body class="bg-info">
+    <nav class="navbar">
+        <a class="bg-light" href="/">Home</a>
+        <a class="bg-light" href="/form">Greet V1</a>
+        <a class="bg-light" href="/form-2">Greet V2</a>
+        <a class="bg-light" href="/lucky">Lucky</a>
+        <a class="bg-light" href="/hello">Hello</a>
+         <a  class="bg-light" href="/movies">movies</a>
+        </nav>
+        
+       <main id="content">
+           {% with messages= get_flashed_messages(with_categories=true) %}
+           {% if messages %}
+           <section class="messages">
+        {% for category, msg in messages %}
+          <p class="{{category}}">{{msg}}</p>
+            {%  endfor %}   
+         </section>
+         {% endif %}
+         {% endwith %}
+    {% block content %} {% endblock %}
+       </main>
+       
+    <footer class="bg-dark  text-light"> <center>DO VISIT ME AGAIN </center></footer>
+    <!-- <script src="/static/app.js"></script> -->
+</body>
+</html>
